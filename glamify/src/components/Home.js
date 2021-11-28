@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Home() {
+function Home() {
     return (
         <div>
             Glamify
@@ -8,3 +8,4 @@ export default function Home() {
     )
 }
 
+export default Home;
