@@ -1,15 +1,18 @@
 module.exports = (sequelize, Sequelize) => {
-    const product = sequelize.define("product", {
-      title: {
-        type: Sequelize.STRING
+    const review = sequelize.define("review", {
+      user: {
+        type: Sequelize.user
       },
-      description: {
-        type: Sequelize.STRING
+      product: {
+        type: Sequelize.product
       },
-      published: {
-        type: Sequelize.BOOLEAN
+      score: {
+        type: Sequelize.FLOAT
+      },
+      text: {
+        type: Sequelize.STRING
       }
     });
   
-    return product;
+    return review;
   };

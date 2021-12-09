@@ -14,15 +14,16 @@ const db = mysql.createPool({
     database: 'Glamify'
 })
 */
-const db = require("./app/models");
-db.sequelize.sync();
+// const db = require("./models");
+// db.sequelize.sync();
 
 // 
 app.get("/", (req, res) => {
-    const sqlInsert = "INSERT INTO users (full_name, age) VALUES ('Haley Giang', 21)"
-    db.query(sqlInsert, (err, result) => {
-        res.send("Hello, world. This is Glamify!");
-    })
+
+    // const sqlInsert = "INSERT INTO users (full_name, age) VALUES ('Haley Giang', 21)"
+    // db.query(sqlInsert, (err, result) => {
+    res.send("Hello, world. This is Glamify!");
+    // })
 })
 
 // Port
