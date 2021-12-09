@@ -18,13 +18,13 @@
     float: right;
 } */
 
-.buttons{
+.b{
     font-family: Monaco;
     font-size: 20px;
-    background-color: #f8f6f8; 
+    background-color: #ff99ff; 
     border: none;
-    color: #ff99ff;
+    color: #f8f6f8;
     cursor: pointer;
-    border-radius: 80%;
-    float: right;
+    justify-content: space-between;
   }
+
