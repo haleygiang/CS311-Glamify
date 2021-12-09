@@ -1,0 +1,30 @@
+.suggestions{
+    color: #ffffff;
+    font-family: Monaco;
+    font-size: 20px;
+    align-items: flex-start;
+    top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+/* .buttons{
+    font-family: Monaco;
+    font-size: 20px;
+    background-color: #ff99ff; 
+    border: none;
+    color: #f8f6f8;
+    cursor: pointer;
+    float: right;
+} */
+
+.buttons{
+    font-family: Monaco;
+    font-size: 20px;
+    background-color: #f8f6f8; 
+    border: none;
+    color: #ff99ff;
+    cursor: pointer;
+    border-radius: 80%;
+    float: right;
+  }
