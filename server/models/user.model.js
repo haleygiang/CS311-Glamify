@@ -8,9 +8,6 @@ module.exports = (sequelize, Sequelize) => {
       },
       pronouns: {
         type: Sequelize.STRING
-      },
-      name: {
-        type: Sequelize.STRING
       }
     });
   
