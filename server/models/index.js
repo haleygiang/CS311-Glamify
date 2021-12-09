@@ -3,7 +3,7 @@ const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.host,
+  host: dbConfig.HOST,
   dialect: dbConfig.dialect,
   operatorsAliases: false,
 });
@@ -17,5 +17,6 @@ db.product = require("./product.model.js")(sequelize, Sequelize);
 db.ingredient = require("./ingredient.model.js")(sequelize, Sequelize);
 db.user = require("./user.model.js")(sequelize, Sequelize);
 db.review = require("./review.model.js")(sequelize, Sequelize);
+db.contains = require("./contains.model.js")(sequelize, Sequelize);
 
 module.exports = db;
