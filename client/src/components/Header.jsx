@@ -75,7 +75,7 @@ function Header(props) {
           <input
             class="form-control me-2"
             type="text"
-            placeholder="Product's Name"
+            placeholder="Search"
             aria-label="Search"
             value={search}
             onChange={props.updateSearch}
