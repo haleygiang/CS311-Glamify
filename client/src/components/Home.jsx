@@ -12,41 +12,43 @@ function Home() {
   // navigate('../components/AllProducts');
 
   return (
-    <div style={{ backgroundColor: "#fff3f4" }}>
+    <div>
       {/* Nav Bar  */}
       <Header />
-
-      {/* Home Screen  */}
-      <section
-        className="text-dark row no-gutters text-sm-start"
-        style={{ height: "100vh", width: "100%", backgroundColor: "#ffe7ea" }}
-      >
-        <div className="col h-100 w-50 p-5 align-left d-flex align-items-center justify-content-between">
-          <div>
-            <h1>
-              Is Your Skin <span className="text-secondary">Happy</span>?
-            </h1>
-            <p className="lead">
-              Let Glamify help you choose the best cosmetic products for your
-              skin with the best price!
-            </p>
-            <button className="btn btn-secondary btn-lg">View Products</button>
-          </div>
-        </div>
-        <div
-          className="col w-50 h-100 p-5 align-items-center justify-content-between"
-          style={{ backgroundColor: "#fff3f4" }}
+      <div style={{ backgroundColor: "#fff3f4" }}>
+        {/* Home Screen  */}
+        <section
+          className="text-dark row no-gutters text-sm-start"
+          style={{ height: "100vh", width: "100%", backgroundColor: "#ffe7ea" }}
         >
-          <div>
-            <img
-              className="img-fluid rounded mx-auto d-block "
-              src={rightImg2}
-              alt="rightimg2"
-              mx-6
-            />
+          <div className="col h-100 w-50 p-5 align-left d-flex align-items-center justify-content-between">
+            <div>
+              <h1>
+                Is Your Skin <span className="text-secondary">Happy</span>?
+              </h1>
+              <p className="lead">
+                Let Glamify help you choose the best cosmetic products for your
+                skin with the best price!
+              </p>
+              <button className="btn btn-secondary btn-lg">
+                View Products
+              </button>
+            </div>
           </div>
+          <div
+            className="col w-50 h-100 p-5 align-items-center justify-content-between"
+            style={{ backgroundColor: "#fff3f4" }}
+          >
+            <div>
+              <img
+                className="img-fluid rounded mx-auto d-block "
+                src={rightImg2}
+                alt="rightimg2"
+                mx-6
+              />
+            </div>
 
-          {/* <div className="thumbnail">
+            {/* <div className="thumbnail">
             <img
               className="img-fluid rounded float-start"
               src={rightImg1}
@@ -54,8 +56,9 @@ function Home() {
             />
           </div>
           <img className="img-fluid rounded float-end" src={rightImg3} alt="rightimg3" /> */}
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
 
       {/* <div className="suggestions">
         <img src={poster} alt="homepageimg" width="800" height="700" />

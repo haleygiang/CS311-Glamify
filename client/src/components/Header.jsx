@@ -10,8 +10,8 @@ function Header(props) {
   return (
     // Nav bar
     <nav
-      class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent p-3"
-      // style={{ backgroundColor: "#FFC0CB" }}
+      class="navbar sticky-top navbar-expand-lg navbar-light p-3"
+      style={{ backgroundColor: "#fff3f4" }}
     >
       <div class="container">
         <a class="navbar-brand" href="/">
