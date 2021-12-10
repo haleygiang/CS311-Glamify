@@ -8,11 +8,12 @@ function Header(props) {
   const search = props.search;
 
   return (
+    // Nav bar
     <nav
-      class="navbar navbar-expand-lg navbar-light"
-      style={{ backgroundColor: "#FFC0CB" }}
+      class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent p-3"
+      // style={{ backgroundColor: "#FFC0CB" }}
     >
-      <div class="container-fluid">
+      <div class="container">
         <a class="navbar-brand" href="/">
           Glamify.
         </a>
@@ -26,7 +27,7 @@ function Header(props) {
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
-                href="#"
+                href="#products"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -36,27 +37,27 @@ function Header(props) {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="#makeup">
                     Makeup
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="#skincare">
                     Skincare
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="#hair">
                     Hair
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="#fragrance">
                     Fragrance
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="">
+                  <a class="dropdown-item" href="bathbody">
                     Bath & Body
                   </a>
                 </li>
@@ -70,7 +71,7 @@ function Header(props) {
           </ul>
         </div>
 
-        <form class="d-flex" onSubmit={props.getSearch}>
+        <form class="d-flex ms-auto" onSubmit={props.getSearch}>
           <input
             class="form-control me-2"
             type="text"
