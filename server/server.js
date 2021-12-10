@@ -19,11 +19,7 @@ const db = mysql.createPool({
 
 // 
 app.get("/", (req, res) => {
-
-    // const sqlInsert = "INSERT INTO users (full_name, age) VALUES ('Haley Giang', 21)"
-    // db.query(sqlInsert, (err, result) => {
     res.send("Hello, world. This is Glamify!");
-    // })
 })
 
 // Port

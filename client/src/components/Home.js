@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header";
-import poster from "../components/images/MainPagePoster.png";
+import Header from "./Header";
+import poster from "../assets/MainPagePoster.png";
 import "./home.css";
 import { useNavigate } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ function Home() {
     <div>
       <Header/>
       <div className="suggestions">
-        <img src={poster} width="800" height="700" />
+        <img src={poster} alt="homepageimg" width="800" height="700" />
           <buttonGroup  className="me-2" aria-label="First group">
             <button onClick={navigate} className="b" variant="secondary">Mask</button>{" "}
             <button onClick={navigate} className="b" variant="secondary">Moisturizer</button>{" "}
