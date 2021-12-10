@@ -15,7 +15,11 @@ const Header = () => {
     setSearch(e.target.value);
   };
 
-  return { search }, getSearch, updateSearch;
+  return { 
+      search={search},
+      getSearch,
+      updateSearch
+    }
 };
 
 export default Header;

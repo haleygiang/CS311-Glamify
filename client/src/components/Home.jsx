@@ -13,7 +13,8 @@ function Home() {
   return (
     <div>
       <Header/>
-      <div className="suggestions">
+
+      {/* <div className="suggestions">
         <img src={poster} alt="homepageimg" width="800" height="700" />
           <buttonGroup  className="me-2" aria-label="First group">
             <button onClick={navigate} className="b" variant="secondary">Mask</button>{" "}
@@ -27,7 +28,7 @@ function Home() {
             <button onClick={navigate} className="b" variant="secondary">Eyeshadow</button>{" "}
             <button onClick={navigate} className="b" variant="secondary">Lipstick</button>
           </buttonGroup>
-      </div>
+      </div> */}
     </div>
   )
 }
