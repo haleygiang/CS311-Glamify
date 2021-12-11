@@ -1,15 +1,10 @@
 import React from "react";
 import Header from "./Header";
 import rightImg1 from "../assets/right1.jpeg";
-import rightImg2 from "../assets/right2.jpeg";
-import rightImg3 from "../assets/right3.jpeg";
-// import poster from "../assets/MainPagePoster.png";
-// import "./home.css";
-// import { useNavigate } from 'react-router-dom';
+// import rightImg2 from "../assets/right2.jpeg";
+// import rightImg3 from "../assets/right3.jpeg";
 
 function Home() {
-  // let navigate = useNavigate();
-  // navigate('../components/AllProducts');
 
   return (
     <div>
@@ -42,8 +37,8 @@ function Home() {
             <div>
               <img
                 className="img-fluid rounded mx-auto d-block "
-                src={rightImg2}
-                alt="rightimg2"
+                src={rightImg1}
+                alt="rightimg1"
                 mx-6
               />
             </div>
