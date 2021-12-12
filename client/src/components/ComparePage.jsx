@@ -1,16 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const ComparePage = props => {
+const ComparePage = () => {
     return (
         <div>
-            
+            Compare Page
         </div>
     )
-}
-
-ComparePage.propTypes = {
-
 }
 
 export default ComparePage

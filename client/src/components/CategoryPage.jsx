@@ -1,16 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const CategoryPage = props => {
+const CategoryPage = () => {
   return (
     <div>
-      
+      Category Page
     </div>
   )
 }
 
-CategoryPage.propTypes = {
-
-}
-
-export default CategoryPage
+export default CategoryPage;

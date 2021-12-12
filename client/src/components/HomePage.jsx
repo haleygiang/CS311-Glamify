@@ -1,10 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import rightImg1 from "../assets/right1.jpeg";
-// import rightImg2 from "../assets/right2.jpeg";
-// import rightImg3 from "../assets/right3.jpeg";
 
-function Home() {
+function HomePage() {
 
   return (
     <div>
@@ -42,36 +40,11 @@ function Home() {
                 mx-6
               />
             </div>
-
-            {/* <div className="thumbnail">
-            <img
-              className="img-fluid rounded float-start"
-              src={rightImg1}
-              alt="rightimg1"
-            />
-          </div>
-          <img className="img-fluid rounded float-end" src={rightImg3} alt="rightimg3" /> */}
           </div>
         </section>
       </div>
-
-      {/* <div className="suggestions">
-        <img src={poster} alt="homepageimg" width="800" height="700" />
-          <buttonGroup  className="me-2" aria-label="First group">
-            <button onClick={navigate} className="b" variant="secondary">Mask</button>{" "}
-            <button onClick={navigate} className="b" variant="secondary">Moisturizer</button>{" "}
-            <button onClick={navigate} className="b" variant="secondary">Face Wash</button>{" "}
-            <button onClick={navigate} className="b" variant="secondary">Essence</button>
-          </buttonGroup>
-          <buttonGroup className="me-2" aria-label="First group">
-            <button onClick={navigate} className="b" variant="secondary">Foundation</button>{" "}
-            <button onClick={navigate} className="b" variant="secondary">Contour</button>{" "}
-            <button onClick={navigate} className="b" variant="secondary">Eyeshadow</button>{" "}
-            <button onClick={navigate} className="b" variant="secondary">Lipstick</button>
-          </buttonGroup>
-      </div> */}
     </div>
   );
 }
 
-export default Home;
+export default HomePage;

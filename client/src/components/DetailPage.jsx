@@ -1,16 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const DetailPage = props => {
+const DetailPage = () => {
     return (
         <div>
-            
+            Detail Page
         </div>
     )
-}
-
-DetailPage.propTypes = {
-
 }
 
 export default DetailPage

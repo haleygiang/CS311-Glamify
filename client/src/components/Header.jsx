@@ -23,8 +23,8 @@ function Header(props) {
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
-                href="#products"
                 id="navbarDropdown"
+                href="/"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
@@ -33,34 +33,34 @@ function Header(props) {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="#makeup">
+                  <a class="dropdown-item" href="/products/:makeup">
                     Makeup
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#skincare">
+                  <a class="dropdown-item" href="/products/:skincare">
                     Skincare
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#hair">
+                  <a class="dropdown-item" href="/products/:hair">
                     Hair
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#fragrance">
+                  <a class="dropdown-item" href="/products/:fragrance">
                     Fragrance
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="bathbody">
+                  <a class="dropdown-item" href="/products/:bathbody">
                     Bath & Body
                   </a>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/compare">
                 Compare
               </a>
             </li>
@@ -82,26 +82,6 @@ function Header(props) {
         </form>
       </div>
     </nav>
-
-    // <div className="header">
-    //   <div className="glamify">
-    //     Glamify
-    //     {/* search form */}
-    //     <form className="search-form" onSubmit={props.getSearch}>
-    //       <input
-    //         type="text"
-    //         className="search-bar"
-    //         value={props.search}
-    //         onChange={props.updateSearch}
-    //         placeholder="Product's Name"
-    //       />
-    //       <button type="submit" className="search-button">
-    //         Search
-    //       </button>
-    //     </form>
-    //     <button className="compare_button">Compare</button>
-    //   </div>
-    // </div>
   );
 }
 
