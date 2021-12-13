@@ -1,5 +1,5 @@
 const db = require("../models");
-const Contains = db.contains;
+const Contains = db.contain;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new contains
