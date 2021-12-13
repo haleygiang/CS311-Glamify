@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const mysql = require('mysql');
+//const mysql = require('mysql');
 const cors  = require('cors'); //Server connection stuff
 
 app.use(cors()); //Server connection stuff
@@ -14,8 +14,8 @@ const db = mysql.createPool({
     database: 'Glamify'
 })
 */
-// const db = require("./models");
-// db.sequelize.sync();
+const db = require("./models");
+db.sequelize.sync();
 
 // 
 app.get("/", (req, res) => {
@@ -31,5 +31,5 @@ require("./routes/contains.routes")(app);
 // Port
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log('Running on port 3001');
+    console.log('Running on port ${PORT}.');
 })
