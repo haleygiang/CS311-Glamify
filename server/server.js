@@ -22,6 +22,12 @@ app.get("/", (req, res) => {
     res.send("Hello, world. This is Glamify!");
 })
 
+require("./app/routes/product.routes")(app);
+require("./app/routes/ingredient.routes")(app);
+require("./app/routes/review.routes")(app);
+require("./app/routes/user.routes")(app);
+require("./app/routes/contains.routes")(app);
+
 // Port
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
