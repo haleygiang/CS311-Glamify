@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from "./Header"
 
 const DetailPage = () => {
     return (
         <div>
-            Detail Page
+          {/* Nav Bar  */}
+          <Header />
+          Detail Page
         </div>
     )
 }

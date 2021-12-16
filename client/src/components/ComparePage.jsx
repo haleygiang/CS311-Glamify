@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import Header from "./Header";
 
 const ComparePage = () => {
     return (
         <div>
-            Compare Page
+          {/* Nav Bar  */}
+          <Header />
+          Compare Page
         </div>
     )
 }
