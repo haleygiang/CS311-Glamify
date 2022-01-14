@@ -20,12 +20,13 @@ exports.create = (req, res) => {
     const keys = Object.keys(products[0]);
 
 
-
     const values = new Array();
 
-    for (var i = 0; i < keys.length; i++) {
+
+    for (var i = 0; i < req.body.length; i++) {
       values.push(Object.values(products[i]))
     }
+
 
     //SQL Query
     var sql = 'INSERT INTO product (??) VALUES ?'
