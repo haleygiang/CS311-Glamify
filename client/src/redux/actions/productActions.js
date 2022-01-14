@@ -1,17 +1,17 @@
 import { productConstants } from "../constants/productConstants";
 
 export const productActions = {
-    request, 
+    request,
     success,
-    failure, 
-    getProduct
+    failure,
+    // getProducts
 }
 
 function request() {
     return {
         type: productConstants.PRODUCT_REQUEST,
     }
-} 
+}
 
 function success(data) {
     return {
@@ -27,7 +27,7 @@ function failure(error) {
     }
 }
 
-// function getProduct(query) {
+// function getProducts(query) {
 //     return dispatch => {
 //         dispatch(request())
 //         const apiKey = "a3cc1d73eff648ff955048012275c85a"; // spoonacular

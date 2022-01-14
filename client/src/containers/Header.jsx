@@ -16,7 +16,8 @@ const Header = () => {
   };
 
   return { 
-      search={search},
+    // BUG!!!
+      // search={search},
       getSearch,
       updateSearch
     }
