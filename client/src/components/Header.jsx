@@ -33,27 +33,27 @@ function Header(props) {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="/products/:makeup">
+                  <a class="dropdown-item" href="/shop/:makeup">
                     Makeup
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/products/:skincare">
+                  <a class="dropdown-item" href="/shop/:skincare">
                     Skincare
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/products/:hair">
+                  <a class="dropdown-item" href="/shop/:hair">
                     Hair
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/products/:fragrance">
+                  <a class="dropdown-item" href="/shop/:fragrance">
                     Fragrance
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/products/:bathbody">
+                  <a class="dropdown-item" href="/shop/:bathbody">
                     Bath & Body
                   </a>
                 </li>

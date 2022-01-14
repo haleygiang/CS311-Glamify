@@ -3,7 +3,6 @@ import Header from "./Header";
 import rightImg1 from "../assets/right1.jpeg";
 
 function HomePage() {
-
   return (
     <div>
       {/* Nav Bar  */}
@@ -23,9 +22,11 @@ function HomePage() {
                 Let Glamify help you choose the best cosmetic products for your
                 skin with the best price!
               </p>
-              <button className="btn btn-secondary btn-lg">
-                View Products
-              </button>
+              <a href="/shop/allproducts">
+                <button className="btn btn-secondary btn-lg">
+                  View Products
+                </button>
+              </a>
             </div>
           </div>
           <div
