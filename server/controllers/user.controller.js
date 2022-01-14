@@ -1,138 +1,140 @@
-const db = require("../models");
-const User = db.user;
-const Op = db.Sequelize.Op;
+const db = require("../database.js");
+//const User = db.user;
+//const Op = db.Sequelize.Op;
 
-// Create and Save a new user
+// Create a new user
 exports.create = (req, res) => {
-    // Validate request
+    // Validate request example
+    /*
     if (!req.body.name) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
       return;
     }
-  
+    */
+
     // Create a user
-    const user = {
-      name: req.body.name,
-      age: req.body.age,
-      pronouns: req.body.pronouns
-    };
-  
-    // Save user in the database
-    User.create(user)
-      .then(data => {
-        res.send(data);
+    const user = req.body;
+    
+    //SQL Query
+    var sql = 'INSERT INTO user SET ?'
+
+    //Testing Connection before running query
+    db.getConnection(function(err, connection) {
+      //error handling
+      if(err) {console.log(err); return;}
+      //query
+      connection.query(sql, user, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        
+        //json result for testing
+        res.json(results)
       })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the user."
-        });
-      });  
+    })
 };
 
 // Retrieve all users from the database.
 exports.findAll = (req, res) => {
-    const name = req.query.name;
-    var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
-  
-    User.findAll({ where: condition })
-      .then(data => {
-        res.send(data);
+    var sql = "SELECT * FROM user"  
+    db.getConnection(function(err, connection) {
+      //error handling
+      if(err) {console.log(err); return;}
+      //query
+      connection.query(sql, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        //json results for testing
+        res.json(results)
       })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving users."
-        });
-      });
+    })
 };
 
 // Find a single user with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    User.findByPk(id)
-      .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `Cannot find user with id=${id}.`
-          });
-        }
+    var sql = "SELECT * FROM user WHERE id_user = ?"  
+    db.getConnection(function(err, connection) {
+      //error handling
+      if(err) {console.log(err); return;}
+      //query
+      connection.query(sql, id, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        //json results for testing
+        res.json(results)
       })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error retrieving user with id=" + id
-        });
-      });
+    })
+    
 };
 
 // Update a user by the id in the request
 exports.update = (req, res) => {
+    //Parameters
     const id = req.params.id;
-
-    User.update(req.body, {
-      where: { id: id }
-    })
-      .then(num => {
-        if (num == 1) {
-          res.send({
-            message: "User was updated successfully."
-          });
-        } else {
-          res.send({
-            message: `Cannot update user with id=${id}. Maybe user was not found or req.body is empty!`
-          });
-        }
+    const user = req.body;
+    
+    // SQL Query
+    var sql = `UPDATE user SET ? WHERE id_user = ${id} `
+    
+    //Testing the connection than running query
+    db.getConnection(function(err, connection) {
+      //error handling
+      if(err) {console.log(err); return;}
+      
+      //Executing Query
+      connection.query(sql, user, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        
+        //json results for testing
+        res.json(results)
       })
-      .catch(err => {
-        res.status(500).send({
-          message: "Error updating user with id=" + id
-        });
-      });
+    })
 };
 
 // Delete a user with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    User.destroy({
-      where: { id: id }
-    })
-      .then(num => {
-        if (num == 1) {
-          res.send({
-            message: "User was deleted successfully!"
-          });
-        } else {
-          res.send({
-            message: `Cannot delete user with id=${id}. Maybe user was not found!`
-          });
-        }
+    // SQL Query
+    var sql = `DELETE FROM user WHERE id_user = ${id} `
+    
+    //Testing the connection than running query
+    db.getConnection(function(err, connection) {
+      //error handling
+      if(err) {console.log(err); return;}
+      
+      //Executing Query
+      connection.query(sql, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        
+        //json results for testing
+        res.json(results)
       })
-      .catch(err => {
-        res.status(500).send({
-          message: "Could not delete user with id=" + id
-        });
-      });
+    })
 };
 
 // Delete all users from the database.
 exports.deleteAll = (req, res) => {
-    User.destroy({
-        where: {},
-        truncate: false
+    // SQL Query
+    var sql = `DELETE FROM user`
+    
+    //Testing the connection than running query
+    db.getConnection(function(err, connection) {
+      //error handling
+      if(err) {console.log(err); return;}
+      
+      //Executing Query
+      connection.query(sql, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        
+        //json results for testing
+        res.json(results)
       })
-        .then(nums => {
-          res.send({ message: `${nums} Users were deleted successfully!` });
-        })
-        .catch(err => {
-          res.status(500).send({
-            message:
-              err.message || "Some error occurred while removing all users."
-          });
-        });
-};
+    })
+  };

@@ -4,11 +4,11 @@
     "description": "testing concurrently",
     "main": "./server/server.js",
     "scripts": {
-      "start": "concurrently \"cd server && npm start\" \"cd client && npm start\" "
+        "start": "concurrently \"cd server && npm start\" \"cd client && npm start\" "
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "concurrently": "^6.0.0"
+        "concurrently": "^6.4.0"
     }
-  }
+}
