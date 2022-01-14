@@ -2,7 +2,7 @@ module.exports = app => {
     const reviews = require("../controllers/review.controller.js");
   
     var router = require("express").Router();
-  
+  /*
     // Create a new Review
     router.post("/", reviews.create);
   
@@ -22,4 +22,6 @@ module.exports = app => {
     router.delete("/", reviews.deleteAll);
   
     app.use('/api/reviews', router);
+
+    */
   };

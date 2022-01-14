@@ -9,9 +9,4 @@ var db = mysql.createPool({
     supportBigNumbers: true
 })
 
-
-db.product = require("./models/product.model.js");
-db.user = require("./models/user.model.js");
-db.review = require("./models/review.model.js");
-
 module.exports = db;

@@ -15,17 +15,27 @@ exports.create = (req, res) => {
     */
 
     // Create a product
-    const product = req.body;
-    
+    const products = req.body;
+
+    const keys = Object.keys(products[0]);
+
+
+
+    const values = new Array();
+
+    for (var i = 0; i < keys.length; i++) {
+      values.push(Object.values(products[i]))
+    }
+
     //SQL Query
-    var sql = 'INSERT INTO product SET ?'
+    var sql = 'INSERT INTO product (??) VALUES ?'
 
     //Testing Connection before running query
     db.getConnection(function(err, connection) {
       //error handling
       if(err) {console.log(err); return;}
       //query
-      connection.query(sql, product, function(err, results) {
+      connection.query(sql, [keys, values], function(err, results) {
         connection.release();
         if (err) { console.log(err)}
         
@@ -37,7 +47,7 @@ exports.create = (req, res) => {
 
 // Retrieve all products from the database.
 exports.findAll = (req, res) => {
-    var sql = "SELECT * FROM product"  
+    var sql = "SELECT * FROM product"
     db.getConnection(function(err, connection) {
       //error handling
       if(err) {console.log(err); return;}
@@ -50,6 +60,31 @@ exports.findAll = (req, res) => {
       })
     })
 };
+
+// Find all products within a category
+exports.findByCategory = (req, res) => {
+  //get parameters
+  const category = req.params.category;
+  
+  //SQL Query
+  var sql = `SELECT * FROM product WHERE category LIKE "${category}"`
+
+  //Testing the connection than running query
+  db.getConnection(function(err, connection) {
+    //error handling
+    if(err) {console.log(err); return;}
+    
+    //Executing Query
+    connection.query(sql, function(err, results) {
+      connection.release();
+      if (err) { console.log(err)}
+      
+      //json results for testing
+      res.json(results)
+    })
+  })
+
+}
 
 // Find a single product with an id
 exports.findOne = (req, res) => {
