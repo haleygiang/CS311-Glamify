@@ -47,9 +47,7 @@ const ProductListingPage = (props) => {
     <div>
       <Header />
       <div className="col p-20 m-20 align-center d-flex align-items-center justify-content-around flex-wrap">
-        {/* <div className="col align-items-center justify-content-between"> */}
           {renderList}
-        {/* </div> */}
       </div>
     </div>
   );
