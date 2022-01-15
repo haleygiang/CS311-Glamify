@@ -100,7 +100,7 @@ exports.findOne = (req, res) => {
         connection.release();
         if (err) { console.log(err)}
         //json results for testing
-        res.json(results)
+        res.json(results[0])
       })
     })
     
