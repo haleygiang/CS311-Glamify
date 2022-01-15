@@ -161,22 +161,20 @@ exports.deleteAll = (req, res) => {
 
     //Testing the connection than running query
     db.getConnection(function(err, connection) {
-            //error handling
-            if (err) { console.log(err); return; }
+        //error handling
+        if (err) { console.log(err); return; }
 
-            //Executing Query
-            connection.query(sql, function(err, results) {
-                connection.release();
-                if (err) { console.log(err) }
+        //Executing Query
+        connection.query(sql, function(err, results) {
+            connection.release();
+            if (err) { console.log(err) }
 
-                //json results for testing
-                res.json(results)
-            })
-        }) <<
-        << << < HEAD
-}; ===
-=== =
+            //json results for testing
+            res.json(results)
+        })
+    })
 };
+
 
 // Find all products within a category
 exports.findByBigCategory = (req, res) => {
@@ -221,6 +219,4 @@ exports.findByBigCategory = (req, res) => {
             res.json(results)
         })
     })
-
-}; >>>
->>> > 3 da4dcded967ae0de0597fbff44bc2d57a9cb69a
+}
