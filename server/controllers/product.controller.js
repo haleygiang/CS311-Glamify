@@ -93,6 +93,7 @@ exports.findOne = (req, res) => {
 
     var sql = "SELECT * FROM product WHERE id_product = ?"
     db.getConnection(function(err, connection) {
+<<<<<<< HEAD
         //error handling
         if (err) { console.log(err); return; }
         //query
@@ -102,6 +103,17 @@ exports.findOne = (req, res) => {
             //json results for testing
             res.json(results)
         })
+=======
+      //error handling
+      if(err) {console.log(err); return;}
+      //query
+      connection.query(sql, id, function(err, results) {
+        connection.release();
+        if (err) { console.log(err)}
+        //json results for testing
+        res.json(results[0])
+      })
+>>>>>>> 3da4dcded967ae0de0597fbff44bc2d57a9cb69a
     })
 
 };
@@ -173,4 +185,58 @@ exports.deleteAll = (req, res) => {
             res.json(results)
         })
     })
+<<<<<<< HEAD
 };
+=======
+  };
+
+  // Find all products within a category
+exports.findByBigCategory = (req, res) => {
+  //get parameters
+  const category = req.params.category;
+  console.log(category)
+  
+  if (category == "Makeup") {
+      //SQL Query
+    var sql = `SELECT * FROM heroku_b35e3a99bab5659.product WHERE category REGEXP 
+    'Face Primer|Setting Spray & Powder|Eyeliner|Beauty Supplements|BB & CC Cream|Mascara|Blush|Makeup|Eye Palettes|Foundation|Concealer|Highlighter|Lipstick|Makeup Palettes|Eyeshadow|Contour'`
+  }
+  else if (category == "Skincare") {
+    //SQL Query
+    var sql = `SELECT * FROM product WHERE category REGEXP 
+    'Face Masks|Moisturizers|Lip Balm & Treatment|Toners|Eye Creams & Treatments|Face Wash & Cleansers|Face Oils|Night Creams|Eye Primer|Eye Cream|Skincare|Face Wash'`
+  }
+  else if (category == "Hair") {
+    //SQL Query
+    var sql = `SELECT * FROM heroku_b35e3a99bab5659.product WHERE category REGEXP 
+    'Scalp & Hair Treatments|Hair Spray|Shampoo|Hair Styling Products|Hair|Dry Shampoo|Hair Masks'`
+  }
+  else if (category == "Fragrance") {
+    //SQL Query
+    var sql = `SELECT * FROM heroku_b35e3a99bab5659.product WHERE category REGEXP 
+    'Cologne|Perfume|Perfume Gift Sets|Fragrance'`
+  }
+  else if (category == "Bath&body") {
+    //SQL Query
+    var sql = `SELECT * FROM heroku_b35e3a99bab5659.product WHERE category REGEXP 
+    'For Body|Body Lotions & Body Oils|Lotions & Oils|Bath & Shower'`
+  }
+
+
+  //Testing the connection than running query
+  db.getConnection(function(err, connection) {
+    //error handling
+    if(err) {console.log(err); return;}
+    
+    //Executing Query
+    connection.query(sql, function(err, results) {
+      connection.release();
+      if (err) { console.log(err)}
+      
+      //json results for testing
+      res.json(results)
+    })
+  })
+
+};
+>>>>>>> 3da4dcded967ae0de0597fbff44bc2d57a9cb69a

@@ -11,9 +11,13 @@ module.exports = app => {
 
     // Retrieve all Products in a category
     router.get("/category/:category", products.findByCategory)
+
+    // Retrieve all Products in a big category
+    // Category mush be one of (Makeup, Skincare, Hair, Fragrance, Bath&body)
+    router.get("/bigcategory/:category", products.findByBigCategory);
   
     // Retrieve a single Product with id
-    router.get("/:id", products.findOne);
+    router.get("/id/:id", products.findOne);
   
     // Update a Product with id
     router.put("/:id", products.update);
@@ -25,5 +29,4 @@ module.exports = app => {
     router.delete("/", products.deleteAll);
     
     app.use('/products', router);
-    
   };
