@@ -34,23 +34,23 @@ function Header(props) {
   return (
     // Nav bar
     <nav
-      class="navbar sticky-top navbar-expand-lg navbar-light p-3"
+      className="navbar sticky-top navbar-expand-lg navbar-light p-3"
       style={{ backgroundColor: "#fff3f4" }}
     >
-      <div class="container">
-        <a class="navbar-brand" href="/">
+      <div className="container">
+        <a className="navbar-brand" href="/">
           Glamify.
         </a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>
-            <li class="nav-item dropdown">
+            <li className="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                className="nav-link dropdown-toggle"
                 id="navbarDropdown"
                 href="/"
                 role="button"
@@ -59,52 +59,52 @@ function Header(props) {
               >
                 Products
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a class="dropdown-item" href="/shop/:makeup">
+                  <a className="dropdown-item" href="/shop/:makeup">
                     Makeup
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/shop/:skincare">
+                  <a className="dropdown-item" href="/shop/:skincare">
                     Skincare
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/shop/:hair">
+                  <a className="dropdown-item" href="/shop/:hair">
                     Hair
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/shop/:fragrance">
+                  <a className="dropdown-item" href="/shop/:fragrance">
                     Fragrance
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="/shop/:bathbody">
+                  <a className="dropdown-item" href="/shop/:bathbody">
                     Bath & Body
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/compare">
+            <li className="nav-item">
+              <a className="nav-link" href="/compare">
                 Compare
               </a>
             </li>
           </ul>
         </div>
 
-        <form class="d-flex ms-auto" onSubmit={props.getSearch}>
+        <form className="d-flex ms-auto" onSubmit={props.getSearch}>
           <input
-            class="form-control me-2"
+            className="form-control me-2"
             type="text"
             placeholder="Search"
             aria-label="Search"
             value={search}
             onChange={props.updateSearch}
           ></input>
-          <button class="btn btn-danger" type="submit">
+          <button className="btn btn-danger" type="submit">
             Search
           </button>
         </form>
