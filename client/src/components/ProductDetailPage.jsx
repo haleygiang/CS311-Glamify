@@ -16,7 +16,7 @@ const ProductDetailPage = () => {
   // Get product details from state
   let product = useSelector((state) => state.product);
 
-  const {
+  let {
       id_product,
       // brand,
       // category,
@@ -50,7 +50,8 @@ const ProductDetailPage = () => {
     };
   }, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
   
-  // console.log("product details: ", id_product, details, name);
+  console.log("product: ", product);
+  console.log("product details: ", id_product, details, name);
 
   return (
     <div>
