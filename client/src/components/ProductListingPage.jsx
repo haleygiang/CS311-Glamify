@@ -1,56 +1,30 @@
-import React from "react";
-import Header from "./Header";
-import * as data from "../utils/test_products";
-import rightImg3 from "../assets/right3.jpeg";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../redux/actions/productActions";
+import ProductComponent from "./ProductComponent";
 
-const ProductListingPage = (props) => {
-  // const products = props.products;
-  const products = data.PRODUCTS;
-  console.log(products);
+const ProductListingPage = () => {
+  const products = useSelector((state) => state.allProducts.products);
+  const dispatch = useDispatch();
 
-  const renderList = products.map((product) => {
-    const {
-      id_product,
-      brand,
-      category,
-      details,
-      how_to_use,
-      ingredients,
-      love,
-      name,
-      num_reviews,
-      price,
-      rating,
-      size,
-      url,
-    } = product;
+  // API call to fetch products from database
+  const fetchProducts = async () => {
+    const response = await axios
+      .get("http://localhost:3001/products")
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+    dispatch(setProducts(response.data));
+  };
 
-    return (
-      // <div class="" style={{ backgroundColor: "#fff3f4" }} key={id_product}>
-      //     Product
-      // </div>
-      <div class="card" style={{ width: "20rem", margin: "1rem"}}>
-        <img src={rightImg3} class="card-img-top" alt="product-img" />
-        <div class="card-body">
-          <h5 class="card-title">{name}</h5>
-          <p class="card-text">Some details details details.</p>
-          <a href={`/product/${id_product}`} class="btn btn-primary">
-            Details
-          </a>
-        </div>
-      </div>
-    );
-  });
+  useEffect(() => {
+    fetchProducts();
+  }, []);
 
-  return (
-    //   {/* Nav bar */}
-    <div>
-      <Header />
-      <div className="col p-20 m-20 align-center d-flex align-items-center justify-content-around flex-wrap">
-          {renderList}
-      </div>
-    </div>
-  );
+  console.log("Products :", products);
+
+  return <ProductComponent />;
 };
 
 export default ProductListingPage;

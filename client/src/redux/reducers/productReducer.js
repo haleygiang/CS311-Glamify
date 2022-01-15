@@ -1,30 +1,26 @@
 import { productConstants } from "../constants/productConstants";
 
-const initialState = {
-    loading: false,
-    data: [],
-    error: ''
-}
+const intialState = {
+    products: [],
+};
 
-export function product(state = initialState, action) {
-    switch (action.type) {
-        case productConstants.PRODUCT_REQUEST:
-            return {
-                ...state,
-                loading: true,
-            };
-        case productConstants.PRODUCT_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                data: action.payload,
-            };
-        case productConstants.PRODUCT_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            };
-        default: return state
+export const productsReducer = (state = intialState, { type, payload }) => {
+    switch (type) {
+        case productConstants.SET_PRODUCTS:
+            return {...state, products: payload };
+        default:
+            return state;
     }
-}
+};
+
+export const selectedProductsReducer = (state = {}, { type, payload }) => {
+    console.log(type);
+    switch (type) {
+        case productConstants.SELECTED_PRODUCT:
+            return {...state, ...payload };
+        case productConstants.REMOVE_SELECTED_PRODUCT:
+            return {};
+        default:
+            return state;
+    }
+};

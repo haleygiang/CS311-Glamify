@@ -1,31 +1,23 @@
 import { productConstants } from "../constants/productConstants";
 
-export const productActions = {
-    request,
-    success,
-    failure,
-    // getProducts
-}
-
-function request() {
+export const setProducts = (products) => {
     return {
-        type: productConstants.PRODUCT_REQUEST,
-    }
-}
+        type: productConstants.SET_PRODUCTS,
+        payload: products,
+    };
+};
 
-function success(data) {
+export const selectedProduct = (product) => {
     return {
-        type: productConstants.PRODUCT_SUCCESS,
-        payload: data
-    }
-}
-
-function failure(error) {
+        type: productConstants.SELECTED_PRODUCT,
+        payload: product,
+    };
+};
+export const removeSelectedProduct = () => {
     return {
-        type: productConstants.PRODUCT_FAILURE,
-        payload: error
-    }
-}
+        type: productConstants.REMOVE_SELECTED_PRODUCT,
+    };
+};
 
 // function getProducts(query) {
 //     return dispatch => {
