@@ -211,3 +211,19 @@ export const PRODUCTS =
         "ingredients": "Lipstick Stuff"
     }
 ]
+
+export const PRODUCT = {
+    "id_product": 5,
+    "brand": "Algenist",
+    "category": "Moisturizers",
+    "name": "POWER Advanced Wrinkle Fighter Moisturizer",
+    "size": "2 oz/ 60 mL",
+    "num_reviews": 67,
+    "love": 4200,
+    "rating": 4.5,
+    "price": 85,
+    "url": "https://www.sephora.com/product/power-advance",
+    "details": "Which skin type is it good for?‚úî Normal‚úî Oily‚úî Combination‚úî Dry‚úî  SensitiveWhat it is:An advanced antiaging moisturizer formulated with the ",
+    "how_to_use": "Suggested Usage:-After cleansing- apply to entire face- neck and d√©collete√©. -For optimal results- use after your usual serum.  Precautions:-Use onl",
+    "ingredients": "Water- Glycerin- C12-15 Alkyl Benzoate- Caprylic/Capric Triglyceride- Palmitic Acid- Stearic Acid- Chlorella Protothecoides- Algae Exopolysaccharides-"
+}

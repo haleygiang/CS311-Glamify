@@ -11,7 +11,7 @@ const ProductComponent = () => {
       id_product,
       // brand,
       // category,
-      // details,
+      details,
       // how_to_use,
       // ingredients,
       // love,
@@ -28,7 +28,7 @@ const ProductComponent = () => {
         <img src={rightImg3} class="card-img-top" alt="product-img" />
         <div class="card-body">
           <h5 class="card-title">{name}</h5>
-          <p class="card-text">Some details details details.</p>
+          <p class="card-text">{details.substring(0,70)}</p>
           <a href={`/product/${id_product}`} class="btn btn-primary">
             Details
           </a>
