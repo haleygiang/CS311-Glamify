@@ -13,7 +13,7 @@ module.exports = app => {
     router.get("/category/:category", products.findByCategory)
   
     // Retrieve a single Product with id
-    router.get("/:id", products.findOne);
+    router.get("/id/:id", products.findOne);
   
     // Update a Product with id
     router.put("/:id", products.update);
