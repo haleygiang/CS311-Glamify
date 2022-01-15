@@ -1,11 +1,9 @@
 import React from "react";
 import Header from "./HeaderPage";
-// import * as data from "../utils/test_products";
 import rightImg3 from "../assets/right3.jpeg";
 import { useSelector } from "react-redux";
 
 const ProductComponent = () => {
-  // const products = data.PRODUCTS;
   const products = useSelector((state) => state.allProducts.products);
 
   const renderList = products.map((product) => {

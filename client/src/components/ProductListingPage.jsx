@@ -20,11 +20,11 @@ const ProductListingPage = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  },[]); // eslint-disable-line react-hooks/exhaustive-deps
 
   console.log("Products :", products);
 
-  return <ProductComponent />;
+  return <ProductComponent/>;
 };
 
 export default ProductListingPage;
