@@ -7,7 +7,6 @@ import {
   selectedProduct,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
-import { PRODUCT } from "../utils/test_products";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -30,7 +29,7 @@ const ProductDetailPage = () => {
       // rating,
       // size,
       // url,
-    } = PRODUCT;
+    } = product;
 
   // API call to fetch product details
   const fetchProductDetail = async (id) => {
