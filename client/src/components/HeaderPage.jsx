@@ -51,7 +51,7 @@ function Header(props) {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                id="navbarDropdown"
+                id="navbarDropdown" 
                 href="/"
                 role="button"
                 data-bs-toggle="dropdown"
