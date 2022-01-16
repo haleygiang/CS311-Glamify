@@ -10,12 +10,15 @@ module.exports = app => {
     router.get("/", products.findAll);
 
     // Retrieve all Products in a category
-    router.get("/category/:category", products.findByCategory)
+    router.get("/category/:category", products.findByCategory);
 
     // Retrieve all Products in a big category
-    // Category mush be one of (Makeup, Skincare, Hair, Fragrance, Bath&body)
+    // Category mush be one of (makeup, skincare, hair, fragrance, bath&body)
     router.get("/bigcategory/:category", products.findByBigCategory);
   
+    // Retrieve all Products by search 
+    router.get("/search/:keyword", products.search);
+
     // Retrieve a single Product with id
     router.get("/id/:id", products.findOne);
   

@@ -175,12 +175,32 @@ exports.deleteAll = (req, res) => {
     })
 };
 
+// Find products based on search keyword
+exports.search = (req, res) => {
+    const keyword = req.params.keyword;
+
+    var sql = `SELECT * FROM product WHERE name LIKE '%${keyword}%' or category LIKE '%${keyword}%' or brand LIKE '%${keyword}%' or ingredients LIKE '%${keyword}%'`
+    
+    console.log(sql)
+    db.getConnection(function(err, connection) {
+        //error handling
+        if (err) { console.log(err); return; }
+        //query
+        connection.query(sql, function(err, results) {
+            connection.release();
+            if (err) { console.log(err) }
+            //json results for testing
+            res.json(results)
+        })
+    })
+
+};
+
 
 // Find all products within a category
 exports.findByBigCategory = (req, res) => {
     //get parameters
     const category = req.params.category;
-    console.log(category)
 
     if (category == "makeup") {
         //SQL Query
