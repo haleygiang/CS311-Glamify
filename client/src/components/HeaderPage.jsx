@@ -1,35 +1,44 @@
-import { React } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setProducts } from "../redux/actions/productActions";
+import axios from "axios";
 
-function Header(props) {
-  const search = props.search;
+const Header = () => {
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
+  const dispatch = useDispatch();
 
-// import { useState } from "react";
+  console.log("SEARCH: ", search);
 
-// const Header = () => {
-//   const [search, setSearch] = useState("");
-//   const setQuery = useState("");
+  // API call to fetch products from database
+  const fetchProducts = async () => {
+    const response = await axios
+      .get("http://localhost:3001/products/bigcategory/" + query)
+      .catch((err) => {
+        console.log("Err: ", err);
+      });
+    if (response !== null) {
+      dispatch(setProducts(response.data));
+    }
+  };
 
-//   // only setQuery when finish typing, setSearch back to empty string for the next search
-//   const getSearch = (e) => {
-//     e.preventDefault();
-//     setQuery(search);
-//     setSearch("");
-//   };
+  // only call API when finish typing query
+  useEffect(() => {
+    if (query !== "") fetchProducts();
+    // eslint-disable-next-line
+  }, [query]); 
 
-//   const updateSearch = (e) => {
-//     setSearch(e.target.value);
-//   };
+  // update search while typing
+  const updateSearch = (e) => {
+    setSearch(e.target.value);
+  };
 
-//   return { 
-//     // BUG!!!
-//       // search={search},
-//       getSearch,
-//       updateSearch
-//     }
-// };
-
-// export default Header;
-
+  // only setQuery when finish typing, setSearch back to empty string for the next search
+  const getSearch = (e) => {
+    e.preventDefault();
+    setQuery(search);
+    setSearch("");
+  };
 
   return (
     // Nav bar
@@ -51,7 +60,7 @@ function Header(props) {
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
-                id="navbarDropdown" 
+                id="navbarDropdown"
                 href="/"
                 role="button"
                 data-bs-toggle="dropdown"
@@ -95,22 +104,26 @@ function Header(props) {
           </ul>
         </div>
 
-        <form className="d-flex ms-auto" onSubmit={props.getSearch}>
+        <form className="d-flex ms-auto" onSubmit={getSearch}>
           <input
             className="form-control me-2"
             type="text"
             placeholder="Search"
             aria-label="Search"
             value={search}
-            onChange={props.updateSearch}
+            onChange={updateSearch}
           ></input>
-          <button className="btn btn-danger" href="/search?keyword={keyword}" type="submit">
+          <button
+            className="btn btn-danger"
+            href="/search?keyword={keyword}"
+            type="submit"
+          >
             Search
           </button>
         </form>
       </div>
     </nav>
   );
-}
+};
 
 export default Header;
