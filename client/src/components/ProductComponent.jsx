@@ -1,21 +1,22 @@
 import React from "react";
 import Header from "./HeaderPage";
 import rightImg3 from "../assets/right3.jpeg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addProductCompare } from "../redux/actions/productActions";
 
 const ProductComponent = () => {
   const products = useSelector((state) => state.allProducts.products);
+  const compareProducts = useSelector((state) => state.compare);
+  console.log("COMPARE: ", compareProducts);
+
+  const dispatch = useDispatch();
 
   const renderList = products.map((product) => {
-    const {
-      id_product,
-      brand,
-      category,
-      love,
-      name,
-      price,
-      rating,
-    } = product;
+    const { id_product, brand, category, love, name, price, rating } = product;
+    // Add product to compare page
+    const onAdd = (product) => {
+      dispatch(addProductCompare(product));
+    };
 
     return (
       <div className="card" style={{ width: "20rem", margin: "1rem" }}>
@@ -55,9 +56,19 @@ const ProductComponent = () => {
             </strong>
           </p>
           <p className="card-text text-danger h5">${price}.00</p>
-          <a href={`/product/${id_product}`} className="btn btn-primary">
-            Details
-          </a>
+
+          <div className="align-left d-flex d-grid gap-2">
+            <a href={`/product/${id_product}`} className="btn btn-danger">
+              Details
+            </a>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => onAdd(product)}
+            >
+              Compare
+            </button>
+          </div>
         </div>
       </div>
     );

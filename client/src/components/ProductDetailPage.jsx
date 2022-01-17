@@ -7,7 +7,6 @@ import {
   selectedProduct,
   removeSelectedProduct,
   addProductCompare,
-  // removeProductCompare
 } from "../redux/actions/productActions";
 import image from "../assets/right3.jpeg";
 
@@ -21,7 +20,7 @@ const ProductDetailPage = () => {
   console.log("COMPARE: ", compare);
 
   const {
-    id_product,
+    // id_product,
     brand,
     category,
     details,
@@ -54,18 +53,10 @@ const ProductDetailPage = () => {
     };
   }, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log("Product ID: ", id_product);
-  // console.log("product details: ", id_product, details, name);
-
   // Add product to compare page 
   const onAdd = (product) => {
     dispatch(addProductCompare(product));
   };
-
-  // Remove product from compare page 
-  // const onRemove = (product) => {
-  //   dispatch(removeProductCompare(product));
-  // }
 
   return (
     <div>

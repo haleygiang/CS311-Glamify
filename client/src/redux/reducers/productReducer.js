@@ -14,7 +14,7 @@ export const allProductsReducer = (state = intialState, { type, payload }) => {
 };
 
 export const selectedProductsReducer = (state = {}, { type, payload }) => {
-    console.log(type);
+    // console.log(type);
     switch (type) {
         case productConstants.SELECTED_PRODUCT:
             return {...state, ...payload };
@@ -36,10 +36,11 @@ export const compareProductsReducer = (
 ) => {
     switch (type) {
         case productConstants.ADD_COMPARE_PRODUCT:
-            const exist = state.products.find(
-                (x) => x.id_product === payload.id_product
+            const exist = state.products.filter(
+                (item) => item.id_product === payload.id_product
             );
-            if (!exist) {
+
+            if (exist.length === 0) {
                 return {
                     ...state,
                     products: [...state.products, payload],
@@ -57,7 +58,7 @@ export const compareProductsReducer = (
                 ...state,
                 products: state.products.filter((item) => item !== payload),
                 qty: state.qty - 1,
-                message: messages.REMOVE_COMPARE_SUCCESS
+                message: messages.REMOVE_COMPARE_SUCCESS,
             };
         default:
             return state;
