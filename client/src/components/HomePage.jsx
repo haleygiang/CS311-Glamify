@@ -38,7 +38,6 @@ function HomePage() {
                 className="img-fluid rounded mx-auto d-block "
                 src={rightImg1}
                 alt="rightimg1"
-                mx-6
               />
             </div>
           </div>

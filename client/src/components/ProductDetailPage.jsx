@@ -7,6 +7,7 @@ import {
   selectedProduct,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
+import image from "../assets/right3.jpeg";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -16,20 +17,20 @@ const ProductDetailPage = () => {
   let product = useSelector((state) => state.product);
 
   let {
-      id_product,
-      // brand,
-      // category,
-      details,
-      // how_to_use,
-      // ingredients,
-      // love,
-      name,
-      // num_reviews,
-      // price,
-      // rating,
-      // size,
-      // url,
-    } = product;
+    id_product,
+    brand,
+    category,
+    details,
+    how_to_use,
+    ingredients,
+    love,
+    name,
+    num_reviews,
+    price,
+    rating,
+    size,
+    url,
+  } = product;
 
   // API call to fetch product details
   const fetchProductDetail = async (id) => {
@@ -48,19 +49,100 @@ const ProductDetailPage = () => {
       dispatch(removeSelectedProduct());
     };
   }, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
-  
-  console.log("product: ", product);
-  console.log("product details: ", id_product, details, name);
+
+  console.log("Product ID: ", id_product);
+  // console.log("product details: ", id_product, details, name);
 
   return (
     <div>
       {/* Nav Bar  */}
       <Header />
-      <div className="container">
+      <div>
         {Object.keys(product).length === 0 ? (
           <div>...Loading</div>
         ) : (
-          <div>Detail Page {details}</div>
+          <section
+            className="row text-dark no-gutters text-sm-start mb-10"
+            style={{
+              height: "100vh",
+              width: "100%",
+            }}
+          >
+            {/* Left side */}
+            <div
+              className="col w-50 h-100 p-5 align-items-center justify-content-between"
+            >
+              <img
+                className="img-fluid rounded mx-auto d-block"
+                src={image}
+                alt="productImg"
+                style={{ height: "80%" }}
+              />
+            </div>
+
+            {/* Right side */}
+            <div className="col h-100 w-50 align-left align-items-start mt-3 justify-content-between">
+              <h1 className="display-6">
+                {brand} <small className="text-muted">in {category}</small>
+              </h1>
+              <h5>{name}</h5>
+
+              <p className="card-text">
+                {love}
+                <strong>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-heart-fill mx-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                    />
+                  </svg>{" "}
+                </strong>
+                | {rating}/5
+                <strong>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-star-fill mb-1 mx-1"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                  </svg>
+                </strong>
+                | {num_reviews} Reviews
+              </p>
+
+              <h5>
+                ${price}
+                <small className="text-muted"> for {size}</small>
+              </h5>
+              <hr />
+              <h5 className="mt-4"><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#details">About the Product</a></h5>
+              <p className="text-muted" id="details">{details}</p>
+              <h5><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#ingredients">Ingredients</a></h5>
+              <p className="text-muted collapse" id="ingredients">{ingredients}</p>
+              <h5><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#howtouse">How to Use</a></h5>
+              <p className="text-muted collapse" id="howtouse">{how_to_use}</p>
+
+              {/* Buttons */}
+              <div className="align-items-center d-flex justify-content-center d-grid gap-2">
+                <button type="button" className="btn btn-danger btn-lg mt-4">
+                  <a href={url} className="text-reset text-decoration-none">Buy Product</a>
+                </button>
+                <button type="button" className="btn btn-secondary btn-lg mt-4">
+                  Add to Compare
+                </button>
+              </div>
+            </div>
+          </section>
         )}
       </div>
     </div>
