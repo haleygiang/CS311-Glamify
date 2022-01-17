@@ -62,9 +62,9 @@ const ProductDetailPage = () => {
           <div>...Loading</div>
         ) : (
           <section
-            className="row text-dark no-gutters text-sm-start mb-10"
+            className="row text-dark no-gutters text-sm-start contain-md"
             style={{
-              height: "100vh",
+              height: "100%",
               width: "100%",
             }}
           >
@@ -76,12 +76,12 @@ const ProductDetailPage = () => {
                 className="img-fluid rounded mx-auto d-block"
                 src={image}
                 alt="productImg"
-                style={{ height: "80%" }}
+                style={{ height: "75vh" }}
               />
             </div>
 
             {/* Right side */}
-            <div className="col h-100 w-50 align-left align-items-start mt-3 justify-content-between">
+            <div className="col h-100 w-50 align-left align-items-start mt-3 mb-3 justify-content-between">
               <h1 className="display-6">
                 {brand} <small className="text-muted">in {category}</small>
               </h1>
