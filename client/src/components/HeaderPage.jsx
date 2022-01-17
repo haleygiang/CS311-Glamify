@@ -104,7 +104,7 @@ function Header(props) {
             value={search}
             onChange={props.updateSearch}
           ></input>
-          <button className="btn btn-danger" type="submit">
+          <button className="btn btn-danger" href="/search?keyword={keyword}" type="submit">
             Search
           </button>
         </form>

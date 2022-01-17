@@ -3,8 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import CategoryPage from "./CategoryPage";
 import ComparePage from "./ComparePage";
-import ProductDetailPage from "./ProductDetailPage"
+import ProductDetailPage from "./ProductDetailPage";
 import ProductListingPage from "./ProductListingPage";
+import SearchPage from "./SearchPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/shop/:cat" element={<CategoryPage />}></Route>
         <Route path="/product/:productId" element={<ProductDetailPage />}></Route>
         <Route path="/compare" element={<ComparePage/>}></Route>
+        <Route path="/search?keyword={keyword}" element={<SearchPage />}></Route>
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
