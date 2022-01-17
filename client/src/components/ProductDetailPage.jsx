@@ -16,8 +16,8 @@ const ProductDetailPage = () => {
 
   // Get product details from state
   const product = useSelector((state) => state.product);
-  const compare = useSelector((state) => state.compare);
-  console.log("COMPARE: ", compare);
+  const compareProducts = useSelector((state) => state.compare);
+  console.log("COMPARE: ", compareProducts);
 
   const {
     // id_product,
@@ -57,6 +57,12 @@ const ProductDetailPage = () => {
   const onAdd = (product) => {
     dispatch(addProductCompare(product));
   };
+
+    // Save list of compare products to local storage
+    useEffect(() => {
+      localStorage.setItem("compare", JSON.stringify(compareProducts));
+    }, [compareProducts]);
+  
 
   return (
     <div>

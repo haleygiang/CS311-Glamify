@@ -1,26 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./HeaderPage";
-import rightImg3 from "../assets/right3.jpeg";
+import image from "../assets/right3.jpeg";
 import { useSelector, useDispatch } from "react-redux";
 import { addProductCompare } from "../redux/actions/productActions";
 
-const ProductComponent = () => {
-  const products = useSelector((state) => state.allProducts.products);
+const ProductComponent = (props) => {
+  const { products } = props;
   const compareProducts = useSelector((state) => state.compare);
   console.log("COMPARE: ", compareProducts);
 
   const dispatch = useDispatch();
 
+  // Save list of compare products to local storage
+  useEffect(() => {
+    localStorage.setItem("compare", JSON.stringify(compareProducts));
+  }, [compareProducts]);
+
+  // Add product to compare page
+  const onAdd = (product) => {
+    dispatch(addProductCompare(product));
+  };
+
   const renderList = products.map((product) => {
     const { id_product, brand, category, love, name, price, rating } = product;
-    // Add product to compare page
-    const onAdd = (product) => {
-      dispatch(addProductCompare(product));
-    };
 
     return (
       <div className="card" style={{ width: "20rem", margin: "1rem" }}>
-        <img src={rightImg3} className="card-img-top" alt="product-img" />
+        <img src={image} className="card-img-top" alt="product-img" />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text text-muted">

@@ -30,5 +30,6 @@ export const addProductCompare = (product) => {
 export const removeProductCompare = (product) => {
     return {
         type: productConstants.REMOVE_COMPARE_PRODUCT,
+        payload: product
     }
 }

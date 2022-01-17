@@ -14,7 +14,6 @@ export const allProductsReducer = (state = intialState, { type, payload }) => {
 };
 
 export const selectedProductsReducer = (state = {}, { type, payload }) => {
-    // console.log(type);
     switch (type) {
         case productConstants.SELECTED_PRODUCT:
             return {...state, ...payload };
@@ -25,6 +24,9 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
     }
 };
 
+const compareFromLocalStorage = JSON.parse(localStorage.getItem("compare"))
+
+// eslint-disable-next-line
 const initialStateCompare = {
     products: [],
     qty: 0,
@@ -32,7 +34,7 @@ const initialStateCompare = {
 };
 
 export const compareProductsReducer = (
-    state = initialStateCompare, { type, payload }
+    state = compareFromLocalStorage, { type, payload }
 ) => {
     switch (type) {
         case productConstants.ADD_COMPARE_PRODUCT:
