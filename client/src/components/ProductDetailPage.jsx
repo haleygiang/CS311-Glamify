@@ -82,10 +82,10 @@ const ProductDetailPage = () => {
 
             {/* Right side */}
             <div className="col h-100 w-50 align-left align-items-start mt-3 mb-3 justify-content-between">
-              <h1 className="display-6">
+              <h5 className="display-6">
                 {brand} <small className="text-muted">in {category}</small>
-              </h1>
-              <h5>{name}</h5>
+              </h5>
+              <h4>{name}</h4>
 
               <p className="card-text">
                 {love}
@@ -129,7 +129,7 @@ const ProductDetailPage = () => {
               <p className="text-muted" id="details">{details}</p>
               <h5><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#ingredients">Ingredients</a></h5>
               <p className="text-muted collapse" id="ingredients">{ingredients}</p>
-              <h5><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#howtouse">How to Use</a></h5>
+              <h5 className="mb-4"><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#howtouse">How to Use</a></h5>
               <p className="text-muted collapse" id="howtouse">{how_to_use}</p>
 
               {/* Buttons */}
