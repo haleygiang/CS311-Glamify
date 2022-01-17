@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./HeaderPage";
-import rightImg1 from "../assets/right1.jpeg";
+import image from "../assets/right1.jpeg";
 
 function HomePage() {
   return (
@@ -36,8 +36,8 @@ function HomePage() {
             <div>
               <img
                 className="img-fluid rounded mx-auto d-block "
-                src={rightImg1}
-                alt="rightimg1"
+                src={image}
+                alt="img"
               />
             </div>
           </div>

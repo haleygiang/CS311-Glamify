@@ -1,10 +1,10 @@
-import { productConstants } from "../constants/productConstants";
+import { productConstants, messages } from "../constants/productConstants";
 
 const intialState = {
     products: [],
 };
 
-export const productsReducer = (state = intialState, { type, payload }) => {
+export const allProductsReducer = (state = intialState, { type, payload }) => {
     switch (type) {
         case productConstants.SET_PRODUCTS:
             return {...state, products: payload };
@@ -20,6 +20,45 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
             return {...state, ...payload };
         case productConstants.REMOVE_SELECTED_PRODUCT:
             return {};
+        default:
+            return state;
+    }
+};
+
+const initialStateCompare = {
+    products: [],
+    qty: 0,
+    message: "",
+};
+
+export const compareProductsReducer = (
+    state = initialStateCompare, { type, payload }
+) => {
+    switch (type) {
+        case productConstants.ADD_COMPARE_PRODUCT:
+            const exist = state.products.find(
+                (x) => x.id_product === payload.id_product
+            );
+            if (!exist) {
+                return {
+                    ...state,
+                    products: [...state.products, payload],
+                    qty: state.qty + 1,
+                    message: messages.ADD_COMPARE_SUCCESS,
+                };
+            } else {
+                return {
+                    ...state,
+                    message: messages.ALREADY_ADDED_COMPARE,
+                };
+            }
+        case productConstants.REMOVE_COMPARE_PRODUCT:
+            return {
+                ...state,
+                products: state.products.filter((item) => item !== payload),
+                qty: state.qty - 1,
+                message: messages.REMOVE_COMPARE_SUCCESS
+            };
         default:
             return state;
     }

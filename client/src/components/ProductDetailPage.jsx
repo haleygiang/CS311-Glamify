@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectedProduct,
   removeSelectedProduct,
+  addProductCompare,
+  // removeProductCompare
 } from "../redux/actions/productActions";
 import image from "../assets/right3.jpeg";
 
@@ -14,9 +16,11 @@ const ProductDetailPage = () => {
   const dispatch = useDispatch();
 
   // Get product details from state
-  let product = useSelector((state) => state.product);
+  const product = useSelector((state) => state.product);
+  const compare = useSelector((state) => state.compare);
+  console.log("COMPARE: ", compare);
 
-  let {
+  const {
     id_product,
     brand,
     category,
@@ -53,13 +57,24 @@ const ProductDetailPage = () => {
   console.log("Product ID: ", id_product);
   // console.log("product details: ", id_product, details, name);
 
+  // Add product to compare page 
+  const onAdd = (product) => {
+    dispatch(addProductCompare(product));
+  };
+
+  // Remove product from compare page 
+  // const onRemove = (product) => {
+  //   dispatch(removeProductCompare(product));
+  // }
+
   return (
     <div>
       {/* Nav Bar  */}
       <Header />
       <div>
         {Object.keys(product).length === 0 ? (
-          <div>...Loading</div>
+          <div><h1 className="display-6">...Loading</h1>
+          </div>
         ) : (
           <section
             className="row text-dark no-gutters text-sm-start contain-md"
@@ -69,9 +84,7 @@ const ProductDetailPage = () => {
             }}
           >
             {/* Left side */}
-            <div
-              className="col w-50 h-100 p-5 align-items-center justify-content-between"
-            >
+            <div className="col w-50 h-100 p-5 align-items-center justify-content-between">
               <img
                 className="img-fluid rounded mx-auto d-block"
                 src={image}
@@ -125,20 +138,52 @@ const ProductDetailPage = () => {
                 <small className="text-muted"> for {size}</small>
               </h5>
               <hr />
-              <h5 className="mt-4"><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#details">About the Product</a></h5>
-              <p className="text-muted" id="details">{details}</p>
-              <h5><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#ingredients">Ingredients</a></h5>
-              <p className="text-muted collapse" id="ingredients">{ingredients}</p>
-              <h5 className="mb-4"><a className="text-reset text-decoration-none" data-bs-toggle="collapse" href="#howtouse">How to Use</a></h5>
-              <p className="text-muted collapse" id="howtouse">{how_to_use}</p>
+              <h5 className="mt-4">
+                <a
+                  className="text-reset text-decoration-none"
+                  data-bs-toggle="collapse"
+                  href="#details"
+                >
+                  About the Product
+                </a>
+              </h5>
+              <p className="text-muted" id="details">
+                {details}
+              </p>
+              <h5>
+                <a
+                  className="text-reset text-decoration-none"
+                  data-bs-toggle="collapse"
+                  href="#ingredients"
+                >
+                  Ingredients
+                </a>
+              </h5>
+              <p className="text-muted collapse" id="ingredients">
+                {ingredients}
+              </p>
+              <h5 className="mb-4">
+                <a
+                  className="text-reset text-decoration-none"
+                  data-bs-toggle="collapse"
+                  href="#howtouse"
+                >
+                  How to Use
+                </a>
+              </h5>
+              <p className="text-muted collapse" id="howtouse">
+                {how_to_use}
+              </p>
 
               {/* Buttons */}
               <hr />
               <div className="align-items-center d-flex justify-content-center d-grid gap-2">
                 <button type="button" className="btn btn-danger btn-lg mt-4">
-                  <a href={url} className="text-reset text-decoration-none">Buy Product</a>
+                  <a href={url} className="text-reset text-decoration-none">
+                    Buy Product
+                  </a>
                 </button>
-                <button type="button" className="btn btn-secondary btn-lg mt-4">
+                <button type="button" className="btn btn-secondary btn-lg mt-4" onClick={() => onAdd(product)}>
                   Add to Compare
                 </button>
               </div>
