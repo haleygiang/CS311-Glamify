@@ -121,7 +121,7 @@ const ProductDetailPage = () => {
               </p>
 
               <h5>
-                ${price}
+                ${price}.00
                 <small className="text-muted"> for {size}</small>
               </h5>
               <hr />
@@ -133,6 +133,7 @@ const ProductDetailPage = () => {
               <p className="text-muted collapse" id="howtouse">{how_to_use}</p>
 
               {/* Buttons */}
+              <hr />
               <div className="align-items-center d-flex justify-content-center d-grid gap-2">
                 <button type="button" className="btn btn-danger btn-lg mt-4">
                   <a href={url} className="text-reset text-decoration-none">Buy Product</a>

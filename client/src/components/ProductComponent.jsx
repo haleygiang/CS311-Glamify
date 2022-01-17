@@ -54,7 +54,7 @@ const ProductComponent = () => {
               </svg>
             </strong>
           </p>
-          <p className="card-text text-danger h5">${price}</p>
+          <p className="card-text text-danger h5">${price}.00</p>
           <a href={`/product/${id_product}`} className="btn btn-primary">
             Details
           </a>
