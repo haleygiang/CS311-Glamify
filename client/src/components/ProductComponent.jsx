@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./HeaderPage";
-import image from "../assets/right3.jpeg";
+import defaultImage from "../assets/right3.jpeg";
 import { useDispatch } from "react-redux";
 import { addProductCompare } from "../redux/actions/productActions";
 
@@ -14,11 +14,20 @@ const ProductComponent = (props) => {
   };
 
   const renderList = products.map((product) => {
-    const { id_product, brand, category, love, name, price, rating } = product;
+    const { id_product, brand, category, love, name, price, rating, image } =
+      product;
 
     return (
-      <div className="card" key={id_product} style={{ width: "20rem", margin: "1rem" }}>
-        <img src={image} className="card-img-top" alt="product-img" />
+      <div
+        className="card"
+        key={id_product}
+        style={{ width: "20rem", margin: "1rem" }}
+      >
+        {image ? (
+          <img src={image} className="card-img-top" alt="product-img" />
+        ) : (
+          <img src={defaultImage} className="card-img-top" alt="product-img" />
+        )}
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text text-muted">

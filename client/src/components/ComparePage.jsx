@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./HeaderPage";
 import { useDispatch, useSelector } from "react-redux";
+import defaultImage from "../assets/right3.jpeg";
 import { removeProductCompare } from "../redux/actions/productActions";
 import StarRatings from "react-star-ratings";
 import { styled } from "@mui/material/styles";
@@ -45,9 +46,24 @@ const ComparePage = () => {
                   <tr>
                     {/* Name + Image  */}
                     <th scope="col"></th>
-                    {products.map(({ name, id_product }) => (
+                    {products.map(({ name, id_product, image }) => (
                       <th scope="col" key={id_product}>
-                        {name}
+                        {image ? (
+                          <img
+                            src={image}
+                            className="img-thumbnail img-responsive"
+                            alt="product-img"
+                            style={{maxHeight: "200px", maxWidth: "200px"}}
+                          />
+                        ) : (
+                          <img
+                            src={defaultImage}
+                            className="img-thumbnail img-responsive"
+                            alt="product-img"
+                          />
+                        )}
+                        <br />
+                        <div className="mt-2">{name}</div>
                       </th>
                     ))}
                   </tr>

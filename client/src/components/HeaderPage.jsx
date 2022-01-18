@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productActions";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
+  const { qty } = useSelector((state) => state.compare);
 
   // console.log("SEARCH: ", search);
 
@@ -104,7 +105,14 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/compare">
-                Compare
+                  Compare{" "}
+                  {qty ? (
+                    <span className="badge rounded-pill bg-danger">
+                      {qty}
+                    </span>
+                  ) : (
+                    ""
+                  )}
               </a>
             </li>
           </ul>
