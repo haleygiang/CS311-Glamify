@@ -53,7 +53,7 @@ const ComparePage = () => {
                             src={image}
                             className="img-thumbnail img-responsive"
                             alt="product-img"
-                            style={{maxHeight: "200px", maxWidth: "200px"}}
+                            style={{ maxHeight: "200px", maxWidth: "200px" }}
                           />
                         ) : (
                           <img
@@ -63,7 +63,9 @@ const ComparePage = () => {
                           />
                         )}
                         <br />
-                        <div className="mt-2">{name}</div>
+                        <div className="mt-2">
+                          <a className="text-reset" href={`/product/${id_product}`}>{name}</a>
+                        </div>
                       </th>
                     ))}
                   </tr>

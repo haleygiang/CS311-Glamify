@@ -8,7 +8,7 @@ import {
   removeSelectedProduct,
   addProductCompare,
 } from "../redux/actions/productActions";
-import image from "../assets/right3.jpeg";
+import defaultImage from "../assets/right3.jpeg";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -33,6 +33,7 @@ const ProductDetailPage = () => {
     rating,
     size,
     url,
+    image,
   } = product;
 
   // API call to fetch product details
@@ -53,7 +54,7 @@ const ProductDetailPage = () => {
     };
   }, [productId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Add product to compare page 
+  // Add product to compare page
   const onAdd = (product) => {
     dispatch(addProductCompare(product));
   };
@@ -64,7 +65,8 @@ const ProductDetailPage = () => {
       <Header />
       <div>
         {Object.keys(product).length === 0 ? (
-          <div><h1 className="display-6">...Loading</h1>
+          <div>
+            <h1 className="display-6">...Loading</h1>
           </div>
         ) : (
           <section
@@ -76,12 +78,21 @@ const ProductDetailPage = () => {
           >
             {/* Left side */}
             <div className="col w-50 h-100 p-5 align-items-center justify-content-between">
-              <img
-                className="img-fluid rounded mx-auto d-block"
-                src={image}
-                alt="productImg"
-                style={{ height: "75vh" }}
-              />
+              {image ? (
+                <img
+                  className="img-fluid rounded mx-auto d-block"
+                  src={image}
+                  alt="productImg"
+                  style={{ height: "75vh" }}
+                />
+              ) : (
+                <img
+                  className="img-fluid rounded mx-auto d-block"
+                  src={defaultImage}
+                  alt="productImg"
+                  style={{ height: "75vh" }}
+                />
+              )}
             </div>
 
             {/* Right side */}
@@ -174,7 +185,11 @@ const ProductDetailPage = () => {
                     Buy Product
                   </a>
                 </button>
-                <button type="button" className="btn btn-secondary btn-lg mt-4" onClick={() => onAdd(product)}>
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-lg mt-4"
+                  onClick={() => onAdd(product)}
+                >
                   Add to Compare
                 </button>
               </div>
