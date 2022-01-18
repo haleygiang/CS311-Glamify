@@ -26,7 +26,6 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
 
 const compareFromLocalStorage = JSON.parse(localStorage.getItem("compare"))
 
-// eslint-disable-next-line
 const initialStateCompare = {
     products: [],
     qty: 0,
@@ -34,7 +33,7 @@ const initialStateCompare = {
 };
 
 export const compareProductsReducer = (
-    state = compareFromLocalStorage, { type, payload }
+    state = initialStateCompare, { type, payload }
 ) => {
     switch (type) {
         case productConstants.ADD_COMPARE_PRODUCT:
@@ -63,6 +62,6 @@ export const compareProductsReducer = (
                 message: messages.REMOVE_COMPARE_SUCCESS,
             };
         default:
-            return state;
+            return compareFromLocalStorage;
     }
 };

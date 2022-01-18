@@ -8,7 +8,7 @@ const Header = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
 
-  console.log("SEARCH: ", search);
+  // console.log("SEARCH: ", search);
 
   // API call to fetch products from database
   const fetchProducts = async () => {
