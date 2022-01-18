@@ -25,7 +25,7 @@ const ProductComponent = (props) => {
     const { id_product, brand, category, love, name, price, rating } = product;
 
     return (
-      <div className="card" style={{ width: "20rem", margin: "1rem" }}>
+      <div className="card" key={id_product} style={{ width: "20rem", margin: "1rem" }}>
         <img src={image} className="card-img-top" alt="product-img" />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>

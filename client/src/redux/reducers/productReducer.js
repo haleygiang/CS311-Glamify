@@ -24,7 +24,7 @@ export const selectedProductsReducer = (state = {}, { type, payload }) => {
     }
 };
 
-const compareFromLocalStorage = JSON.parse(localStorage.getItem("compare"))
+const compareFromLocalStorage = JSON.parse(localStorage.getItem("compare"));
 
 const initialStateCompare = {
     products: [],
@@ -37,6 +37,8 @@ export const compareProductsReducer = (
 ) => {
     switch (type) {
         case productConstants.ADD_COMPARE_PRODUCT:
+            console.log("STATE PRODUCTS: ", state.products);
+
             const exist = state.products.filter(
                 (item) => item.id_product === payload.id_product
             );
@@ -55,9 +57,12 @@ export const compareProductsReducer = (
                 };
             }
         case productConstants.REMOVE_COMPARE_PRODUCT:
+            const newStateProducts = state.products.filter((item) => item !== payload);
+            localStorage.setItem('compare', JSON.stringify(newStateProducts));
             return {
                 ...state,
-                products: state.products.filter((item) => item !== payload),
+                products: newStateProducts,
+                // products: state.products.filter((item) => item !== payload),
                 qty: state.qty - 1,
                 message: messages.REMOVE_COMPARE_SUCCESS,
             };

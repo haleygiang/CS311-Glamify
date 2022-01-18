@@ -3,17 +3,17 @@ import Header from "./HeaderPage";
 import { useDispatch, useSelector } from "react-redux";
 import { removeProductCompare } from "../redux/actions/productActions";
 import StarRatings from "react-star-ratings";
-import { styled } from '@mui/material/styles';
-import Rating from '@mui/material/Rating';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { styled } from "@mui/material/styles";
+import Rating from "@mui/material/Rating";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const StyledRating = styled(Rating)({
-  '& .MuiRating-iconFilled': {
-    color: '#ff6d75',
+  "& .MuiRating-iconFilled": {
+    color: "#ff6d75",
   },
-  '& .MuiRating-iconHover': {
-    color: '#ff3d47',
+  "& .MuiRating-iconHover": {
+    color: "#ff3d47",
   },
 });
 
@@ -23,7 +23,6 @@ const ComparePage = () => {
   const dispatch = useDispatch();
 
   // Remove product from compare page
-  // eslint-disable-next-line
   const onRemove = (product) => {
     dispatch(removeProductCompare(product));
   };
@@ -68,7 +67,6 @@ const ComparePage = () => {
                     <th scope="row">Customer Rating</th>
                     {products.map(({ rating, num_reviews, id_product }) => (
                       <td key={id_product}>
-                        <span>
                         <StarRatings
                           rating={rating}
                           starRatedColor="#ffcd3c"
@@ -76,7 +74,6 @@ const ComparePage = () => {
                           starSpacing="2px"
                         ></StarRatings>
                         <p>{num_reviews} Reviews</p>
-                        </span>
                       </td>
                     ))}
                   </tr>
@@ -103,7 +100,11 @@ const ComparePage = () => {
                   <tr>
                     <th scope="row">Price</th>
                     {products.map(({ price, id_product }) => (
-                      <td key={id_product}><h6><strong>${Math.floor(price)}.00</strong></h6></td>
+                      <td key={id_product}>
+                        <h6>
+                          <strong>${Math.floor(price)}.00</strong>
+                        </h6>
+                      </td>
                     ))}
                   </tr>
 
@@ -125,9 +126,27 @@ const ComparePage = () => {
 
                   {/* Buttons Buy + Remove Compare*/}
                   <tr>
-                    <th scope="row">Buttons</th>
-                    {products.map(({ category, id_product }) => (
-                      <td key={id_product}>{category}</td>
+                    <th scope="row"></th>
+                    {products.map((product) => (
+                      <td key={product.id_product}>
+                        <div className="align-items-left d-flex justify-content-left d-grid gap-2">
+                          <button type="button" className="btn btn-danger">
+                            <a
+                              href={product.url}
+                              className="text-reset text-decoration-none"
+                            >
+                              Buy
+                            </a>
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            onClick={() => onRemove(product)}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </td>
                     ))}
                   </tr>
                 </tbody>
