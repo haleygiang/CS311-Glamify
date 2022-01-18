@@ -30,8 +30,6 @@ const initialStateCompare = {
     qty: 0,
     message: "",
 };
-// localStorage.setItem("compare", JSON.stringify(initialStateCompare));
-const compareFromLocalStorage = JSON.parse(localStorage.getItem("compare"));
 
 export const compareProductsReducer = (
     state = initialStateCompare, { type, payload }
@@ -56,13 +54,8 @@ export const compareProductsReducer = (
                 };
             }
         case productConstants.REMOVE_COMPARE_PRODUCT:
-            const newStateProducts = state.products.filter((item) => item.id_product !== payload.id_product);
-            console.log("NEW STATE PRODUCTS: ", newStateProducts);
-
-            localStorage.setItem('compare', JSON.stringify(newStateProducts));
             return {
                 ...state,
-                // products: newStateProducts,
                 products: state.products.filter((item) => item !== payload),
                 qty: state.qty - 1,
                 message: messages.REMOVE_COMPARE_SUCCESS,

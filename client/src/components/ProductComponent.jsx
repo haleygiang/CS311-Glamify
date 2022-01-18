@@ -1,20 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "./HeaderPage";
 import image from "../assets/right3.jpeg";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProductCompare } from "../redux/actions/productActions";
 
 const ProductComponent = (props) => {
   const { products } = props;
-  const compareProducts = useSelector((state) => state.compare);
-  console.log("COMPARE: ", compareProducts);
-
   const dispatch = useDispatch();
-
-  // Save list of compare products to local storage
-  useEffect(() => {
-    localStorage.setItem("compare", JSON.stringify(compareProducts));
-  }, [compareProducts]);
 
   // Add product to compare page
   const onAdd = (product) => {

@@ -58,12 +58,6 @@ const ProductDetailPage = () => {
     dispatch(addProductCompare(product));
   };
 
-    // Save list of compare products to local storage
-    useEffect(() => {
-      localStorage.setItem("compare", JSON.stringify(compareProducts));
-    }, [compareProducts]);
-  
-
   return (
     <div>
       {/* Nav Bar  */}

@@ -26,7 +26,7 @@ const Header = () => {
   useEffect(() => {
     if (query !== "") fetchProducts();
     // eslint-disable-next-line
-  }, [query]); 
+  }, [query]);
 
   // update search while typing
   const updateSearch = (e) => {
@@ -70,6 +70,12 @@ const Header = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
+                  <a className="dropdown-item" href="/shop/allproducts">
+                    All Products
+                  </a>
+                </li>
+
+                <li>
                   <a className="dropdown-item" href="/shop/makeup">
                     Makeup
                   </a>
@@ -107,18 +113,23 @@ const Header = () => {
         <form className="d-flex ms-auto" onSubmit={getSearch}>
           <input
             className="form-control me-2"
-            id ="input"
+            id="input"
             type="text"
             placeholder="Search"
             aria-label="Search"
             value={search}
             onChange={updateSearch}
           ></input>
-          <a href="/search/?keyword={$document.getElementById('input').value}" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Search</a>
+          <a
+            href="/search/?keyword={$document.getElementById('input').value}"
+            className="btn btn-danger btn-lg active"
+            role="button"
+            aria-pressed="true"
+          >
+            Search
+          </a>
         </form>
       </div>
-
-
     </nav>
   );
 };
