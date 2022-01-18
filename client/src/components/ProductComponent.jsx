@@ -24,9 +24,9 @@ const ProductComponent = (props) => {
         style={{ width: "20rem", margin: "1rem" }}
       >
         {image ? (
-          <img src={image} className="card-img-top" alt="product-img" />
+          <img src={image} className="card-img-top" alt="product-img" style={{ maxHeight: "400px", maxWidth: "700px" }}/>
         ) : (
-          <img src={defaultImage} className="card-img-top" alt="product-img" />
+          <img src={defaultImage} className="card-img-top" alt="product-img" style={{ maxHeight: "400px", maxWidth: "700px" }}/>
         )}
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
