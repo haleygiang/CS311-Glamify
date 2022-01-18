@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/shop/:cat" element={<CategoryPage />}></Route>
         <Route path="/product/:productId" element={<ProductDetailPage />}></Route>
         <Route path="/compare" element={<ComparePage/>}></Route>
-        <Route path="/search?keyword" element={<SearchPage />}></Route>
+        <Route path="/search/:keyword" element={<SearchPage />}></Route>
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
