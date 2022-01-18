@@ -218,7 +218,7 @@ exports.findByBigCategory = (req, res) => {
         //SQL Query
         var sql = `SELECT * FROM heroku_b35e3a99bab5659.product WHERE category REGEXP 
     'Cologne|Perfume|Perfume Gift Sets|Fragrance'`
-    } else if (category == "bath&body") {
+    } else if (category == "bathbody") {
         //SQL Query
         var sql = `SELECT * FROM heroku_b35e3a99bab5659.product WHERE category REGEXP 
     'For Body|Body Lotions & Body Oils|Lotions & Oils|Bath & Shower'`
