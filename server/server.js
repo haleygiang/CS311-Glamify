@@ -16,22 +16,12 @@ const userRouter = require("./routes/user.routes.js")(app);
 //app.use('/reviews', reviewRouter);
 //app.use('/users', userRouter);
 
+app.get('/', (req, res) => {
+    res.json({message: "Come in through the front please. https://cs311-glamify-client.herokuapp.com"});
+});
+
 // Port
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log('Running on port ${PORT}.');
 })
-/*
-//Declares Static files for node
-app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-//Runs React app?
-if(process.env.NODE_ENV === 'production') {  
-    app.use(express.static(path.join(__dirname, 'client/build')));  
-    
-    app.get('*', (req, res) => {    
-        res.sendFile(path.join(__dirname = 'client/build/index.html'));  
-    })
-}
-
-app.get('*', (req, res) => {  res.sendFile(path.join(__dirname+'/client/public/index.html'));}) */

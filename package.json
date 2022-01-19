@@ -39,8 +39,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "server": "nodemon ./server/server.js",
+    "start": "nodemon ./server/server.js",
     "client": "cd client && npm start",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "DUALMODE": "concurrently \"npm run server\" \"npm run client\""
   }
 }
