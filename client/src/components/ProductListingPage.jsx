@@ -22,8 +22,6 @@ const ProductListingPage = () => {
     fetchProducts();
   },[]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // console.log("Products :", products);
-
   return <ProductComponent products={products}/>;
 };
 

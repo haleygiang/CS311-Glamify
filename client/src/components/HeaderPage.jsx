@@ -2,30 +2,42 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/actions/productActions";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const { qty } = useSelector((state) => state.compare);
+  const navigate = useNavigate();
 
-  // console.log("SEARCH: ", search);
+  console.log("SEARCH: ", search);
 
-  // API call to fetch products from database
+  // API call to fetch search products from database
   const fetchProducts = async () => {
     const response = await axios
-      .get("http://localhost:3001/products/bigcategory/" + query)
+      .get("http://localhost:3001/products/search/" + query)
       .catch((err) => {
         console.log("Err: ", err);
       });
     if (response !== null) {
+      console.log("RESPONSE: ", response);
       dispatch(setProducts(response.data));
     }
   };
 
+  // navigate when clicking on search button 
+  const handleClickSearch = (q) => {
+    navigate(`/search/${q}`);
+  };
+
   // only call API when finish typing query
   useEffect(() => {
-    if (query !== "") fetchProducts();
+    if (query !== "") {
+      console.log("QUERY: ", query);
+      fetchProducts();
+      handleClickSearch(query);
+    }
     // eslint-disable-next-line
   }, [query]);
 
@@ -105,14 +117,12 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/compare">
-                  Compare{" "}
-                  {qty ? (
-                    <span className="badge rounded-pill bg-danger">
-                      {qty}
-                    </span>
-                  ) : (
-                    ""
-                  )}
+                Compare{" "}
+                {qty ? (
+                  <span className="badge rounded-pill bg-danger">{qty}</span>
+                ) : (
+                  ""
+                )}
               </a>
             </li>
           </ul>
@@ -128,14 +138,13 @@ const Header = () => {
             value={search}
             onChange={updateSearch}
           ></input>
-          <a
-            href="/search/?keyword={$document.getElementById('input').value}"
-            className="btn btn-danger btn-lg active"
-            role="button"
-            aria-pressed="true"
+          <button
+            className="btn btn-danger"
+            href="/search/keyword"
+            type="submit"
           >
             Search
-          </a>
+          </button>
         </form>
       </div>
     </nav>
