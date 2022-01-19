@@ -21,12 +21,25 @@ const ProductComponent = (props) => {
       <div
         className="card"
         key={id_product}
-        style={{ width: "20rem", margin: "1rem" }}
+        style={{
+          width: "19rem",
+          margin: "1.5rem",
+        }}
       >
         {image ? (
-          <img src={image} className="card-img-top" alt="product-img" style={{ maxHeight: "400px", maxWidth: "700px" }}/>
+          <img
+            src={image}
+            className="card-img-top"
+            alt="product-img"
+            style={{ maxHeight: "400px", maxWidth: "700px" }}
+          />
         ) : (
-          <img src={defaultImage} className="card-img-top" alt="product-img" style={{ maxHeight: "400px", maxWidth: "700px" }}/>
+          <img
+            src={defaultImage}
+            className="card-img-top"
+            alt="product-img"
+            style={{ maxHeight: "400px", maxWidth: "700px" }}
+          />
         )}
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
@@ -85,7 +98,7 @@ const ProductComponent = (props) => {
     //   {/* Nav bar */}
     <div>
       <Header />
-      <div className="col p-20 m-20 align-center d-flex align-items-center justify-content-around flex-wrap">
+      <div className="col-md px-30 mx-30 align-center d-flex align-items-center justify-content-around flex-wrap">
         {renderList}
       </div>
     </div>
