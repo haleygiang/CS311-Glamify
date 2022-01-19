@@ -8,6 +8,7 @@ import ProductListingPage from "./ProductListingPage";
 import SearchPage from "./SearchPage";
 
 const App = () => {
+  /*
   const [data, setData] = React.useState(null);
 
   React.useEffect(() => {
@@ -15,7 +16,7 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
-  
+  */
   return (
     <BrowserRouter>
       <Routes>
