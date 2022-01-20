@@ -13,7 +13,7 @@ const SearchPage = () => {
   // API call to fetch search products from database
   const fetchProducts = async () => {
     const response = await axios
-      .get("http://www.cs311-glamify.herokuapp.com/products/search/" + choice)
+      .get("http://cs311-glamify.herokuapp.com/products/search/" + choice)
       .catch((err) => {
         console.log("Err: ", err);
       });
