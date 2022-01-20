@@ -16,7 +16,7 @@ const Header = () => {
   // API call to fetch search products from database
   const fetchProducts = async () => {
     const response = await axios
-      .get("http://localhost:3001/products/search/" + query)
+      .get("http://www.cs311-glamify.herokuapp.com/products/search/" + query)
       .catch((err) => {
         console.log("Err: ", err);
       });

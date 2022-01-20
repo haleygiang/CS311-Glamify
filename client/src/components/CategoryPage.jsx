@@ -13,7 +13,7 @@ const CategoryPage = () => {
   // API call to fetch products from database
   const fetchProducts = async () => {
     const response = await axios
-      .get('http://localhost:3001/products/bigcategory/' + choice)
+      .get('http://www.cs311-glamify.herokuapp.com/products/bigcategory/' + choice)
       .catch((err) => {
         console.log("Err: ", err);
       });
