@@ -39,7 +39,7 @@ const ProductDetailPage = () => {
   // API call to fetch product details
   const fetchProductDetail = async (id) => {
     const response = await axios
-      .get(`http://www.cs311-glamify.herokuapp.com/products/id/${id}`)
+      .get(`http://cs311-glamify.herokuapp.com/products/id/${id}`)
       .catch((err) => {
         console.log("Err: ", err);
       });

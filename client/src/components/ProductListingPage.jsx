@@ -11,7 +11,7 @@ const ProductListingPage = () => {
   // API call to fetch products from database
   const fetchProducts = async () => {
     const response = await axios
-      .get("http://www.cs311-glamify.herokuapp.com/products")
+      .get("http://cs311-glamify.herokuapp.com/products")
       .catch((err) => {
         console.log("Err: ", err);
       });
